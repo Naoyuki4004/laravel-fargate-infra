@@ -3,8 +3,8 @@ provider "aws" {
 
   default_tags {
     tags = {
-        Env = "prod"
-        System = "yasu"
+      Env    = "prod"
+      System = "yasu"
     }
   }
 }
@@ -12,8 +12,8 @@ provider "aws" {
 terraform {
   required_providers {
     aws = {
-        source = "hashicorp/aws"
-        version = "3.42.0"
+      source  = "hashicorp/aws"
+      version = "3.42.0"
     }
   }
 
