@@ -37,7 +37,7 @@ resource "aws_alb_listener" "https" {
   default_action {
     type = "forward"
 
-  target_group_arn = aws_lb_target_group.foobar.arn
+    target_group_arn = aws_lb_target_group.foobar.arn
   }
 }
 resource "aws_lb_listener" "redirect_http_to_https" {
@@ -61,19 +61,19 @@ resource "aws_lb_target_group" "foobar" {
   name = "${local.name_prefix}-foobar"
 
   deregistration_delay = 60
-  port = 80
-  protocol = "HTTP"
-  target_type = "ip"
-  vpc_id = data.terraform_remote_state.network_main.outputs.vpc_this_id
+  port                 = 80
+  protocol             = "HTTP"
+  target_type          = "ip"
+  vpc_id               = data.terraform_remote_state.network_main.outputs.vpc_this_id
 
   health_check {
-    healthy_threshold = 2
-    interval = 30
-    matcher = 200
-    path = "/"
-    port = "traffic-port"
-    protocol = "HTTP"
-    timeout = 5
+    healthy_threshold   = 2
+    interval            = 30
+    matcher             = 200
+    path                = "/"
+    port                = "traffic-port"
+    protocol            = "HTTP"
+    timeout             = 5
     unhealthy_threshold = 2
   }
 

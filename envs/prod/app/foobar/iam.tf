@@ -59,7 +59,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_ssm" {
 }
 
 resource "aws_iam_role" "ecs_task" {
-  name = "${local.name_prefix}-${local.service_name}-ecsd-task"
+  name = "${local.name_prefix}-${local.service_name}-ecs-task"
 
   assume_role_policy = jsonencode(
     {
